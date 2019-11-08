@@ -22,8 +22,9 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{EF75D907-32F7-4EB4-B214-0938AB5886EE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>PracticeAlgorithm</RootNamespace>
+    <RootNamespace>AlgorithmicProblemSolvingStrategies</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>AlgorithmicProblemSolvingStrategies</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -153,7 +154,7 @@
   <ItemGroup>
     <ClCompile Include="exercise_7_2.cpp" />
     <ClCompile Include="exercise_7_4.cpp" />
-    <ClCompile Include="PracticeAlgorithm.cpp" />
+    <ClCompile Include="AlgorithmicProblemSolvingStrategies.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exercise_7_2.h" />
