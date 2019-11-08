@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AlgorithmicProblemSolvingStrategies", "AlgorithmicProblemSolvingStrategies\AlgorithmicProblemSolvingStrategies.vcxproj", "{EF75D907-32F7-4EB4-B214-0938AB5886EE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntroductionToDataStructuresUsingC", "IntroductionToDataStructuresUsingC\IntroductionToDataStructuresUsingC.vcxproj", "{2B119F55-097D-46B0-A017-654CF239CFD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DEA6DB68-CB4D-4067-BBAE-98A2B1412EED}"
+	ProjectSection(SolutionItems) = preProject
+		README.txt = README.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +28,14 @@ Global
 		{EF75D907-32F7-4EB4-B214-0938AB5886EE}.Release|x64.Build.0 = Release|x64
 		{EF75D907-32F7-4EB4-B214-0938AB5886EE}.Release|x86.ActiveCfg = Release|Win32
 		{EF75D907-32F7-4EB4-B214-0938AB5886EE}.Release|x86.Build.0 = Release|Win32
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Debug|x64.ActiveCfg = Debug|x64
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Debug|x64.Build.0 = Debug|x64
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Debug|x86.ActiveCfg = Debug|Win32
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Debug|x86.Build.0 = Debug|Win32
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Release|x64.ActiveCfg = Release|x64
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Release|x64.Build.0 = Release|x64
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Release|x86.ActiveCfg = Release|Win32
+		{2B119F55-097D-46B0-A017-654CF239CFD7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

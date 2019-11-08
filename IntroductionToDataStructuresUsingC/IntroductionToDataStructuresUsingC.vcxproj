@@ -20,11 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{EF75D907-32F7-4EB4-B214-0938AB5886EE}</ProjectGuid>
+    <ProjectGuid>{2B119F55-097D-46B0-A017-654CF239CFD7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AlgorithmicProblemSolvingStrategies</RootNamespace>
+    <RootNamespace>IntroductionToDataStructuresUsingC</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>AlgorithmicProblemSolvingStrategies</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -152,17 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="exercise_7_2.cpp" />
-    <ClCompile Include="exercise_7_4.cpp" />
+    <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Print.cpp" />
+    <ClCompile Include="TestBinarySearch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="exercise_7_2.h" />
-    <ClInclude Include="exercise_7_4.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="exercise_7_2.txt" />
-    <Text Include="exercise_7_4.txt" />
+    <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="Print.h" />
+    <ClInclude Include="TestBinarySearch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

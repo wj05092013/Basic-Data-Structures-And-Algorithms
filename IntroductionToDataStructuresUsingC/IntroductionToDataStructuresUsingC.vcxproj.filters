@@ -15,30 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="exercise_7_2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="exercise_7_4.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BinarySearch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBinarySearch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Print.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="exercise_7_2.h">
+    <ClInclude Include="BinarySearch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="exercise_7_4.h">
+    <ClInclude Include="TestBinarySearch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="exercise_7_2.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
-    <Text Include="exercise_7_4.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
+    <ClInclude Include="Print.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
