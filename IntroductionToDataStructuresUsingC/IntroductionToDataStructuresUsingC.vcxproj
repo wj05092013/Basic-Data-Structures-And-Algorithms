@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="Iterator.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Print.h" />
     <ClInclude Include="TestBinarySearch.h" />

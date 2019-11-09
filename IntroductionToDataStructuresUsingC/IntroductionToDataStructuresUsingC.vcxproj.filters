@@ -44,5 +44,8 @@
     <ClInclude Include="LinkedList.h">
       <Filter>LinkedList</Filter>
     </ClInclude>
+    <ClInclude Include="Iterator.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

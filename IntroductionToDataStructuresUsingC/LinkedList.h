@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Iterator.h"
+
 namespace data_structure
 {
 	class LinkedList
@@ -28,6 +30,23 @@ namespace data_structure
 		};
 
 	public:
+		class Iterator : public IIterator<int>
+		{
+		public:
+			Iterator(Node* node);
+
+			bool HasPrev() override;
+			bool HasNext() override;
+			Iterator& GetPrev() override;
+			Iterator& GetNext() override;
+			const Iterator& GetPrev() const override;
+			const Iterator& GetNext() const override;
+
+		private:
+			Node* node_;
+		};
+
+	public:
 		LinkedList();
 		LinkedList(const LinkedList& list);
 		~LinkedList();
@@ -42,8 +61,8 @@ namespace data_structure
 
 		void Clear();
 
-		int PeekFront() const;
-		int PeekBack() const;
+		Iterator Begin();
+		Iterator End();
 
 	private:
 		Node* head_;
