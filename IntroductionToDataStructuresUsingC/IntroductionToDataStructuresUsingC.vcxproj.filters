@@ -10,6 +10,9 @@
     <Filter Include="Main">
       <UniqueIdentifier>{1ac5de73-a22d-42c9-ad1e-1ed700048b7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LinkedList">
+      <UniqueIdentifier>{8bbedd10-1c08-4e18-8ea9-9545308e07b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -24,6 +27,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="LinkedList.cpp">
+      <Filter>LinkedList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
@@ -34,6 +40,9 @@
     </ClInclude>
     <ClInclude Include="Print.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>LinkedList</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
