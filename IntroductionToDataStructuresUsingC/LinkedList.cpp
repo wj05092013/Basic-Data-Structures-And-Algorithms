@@ -12,6 +12,15 @@ namespace data_structure
 	}
 
 	//
+	// ConstIterator Class
+	//
+
+	LinkedList::ConstIterator::ConstIterator(Node* node) :
+		ConstIteratorBase(node)
+	{
+	}
+
+	//
 	// LinkedList Class
 	//
 
@@ -150,8 +159,18 @@ namespace data_structure
 		return Iterator(head_->next);
 	}
 
+	LinkedList::ConstIterator LinkedList::Begin() const
+	{
+		return ConstIterator(head_->next);
+	}
+
 	LinkedList::Iterator LinkedList::End()
 	{
 		return Iterator(tail_);
+	}
+
+	LinkedList::ConstIterator LinkedList::End() const
+	{
+		return ConstIterator(tail_);
 	}
 }

@@ -9,4 +9,12 @@ namespace print
 			std::cout << arr[i] << " ";
 		}
 	}
+
+	void PrintLinkedList(const data_structure::LinkedList& list)
+	{
+		for (auto iter = list.Begin(); iter != list.End(); ++iter)
+		{
+			std::cout << *iter << " ";
+		}
+	}
 }

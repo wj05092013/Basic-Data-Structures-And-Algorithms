@@ -27,21 +27,36 @@ namespace data_structure
 	class IteratorBase
 	{
 	public:
-		inline virtual IteratorBase& operator++() { node_ = node_->next; return *this; }
-		inline virtual IteratorBase operator++(int) { Node* cache = node_; node_ = node_->next; return IteratorBase(cache); }
-		inline virtual IteratorBase& operator--() { node_ = node_->prev; return *this; }
-		inline virtual IteratorBase operator--(int) { Node* cache = node_; node_ = node_->prev; return IteratorBase(cache); }
+		inline IteratorBase& operator++() { node_ = node_->next; return *this; }
+		inline IteratorBase operator++(int) { Node* cache = node_; node_ = node_->next; return IteratorBase(cache); }
+		inline IteratorBase& operator--() { node_ = node_->prev; return *this; }
+		inline IteratorBase operator--(int) { Node* cache = node_; node_ = node_->prev; return IteratorBase(cache); }
 
-		inline virtual int& operator*() { return node_->data; }
-		inline virtual const int& operator*() const { return node_->data; }
+		inline int& operator*() { return node_->data; }
+		inline const int& operator*() const { return node_->data; }
 
-		inline virtual bool operator==(const IteratorBase& other) const { return node_ == other.node_; }
-		inline virtual bool operator!=(const IteratorBase& other) const { return node_ != other.node_; }
+		inline bool operator==(const IteratorBase& other) const { return node_ == other.node_; }
+		inline bool operator!=(const IteratorBase& other) const { return node_ != other.node_; }
 
 	protected:
 		IteratorBase(Node* node) :
 			node_(node) {}
 
 		Node* node_;
+	};
+
+	class ConstIteratorBase : public IteratorBase
+	{
+	public:
+		inline ConstIteratorBase& operator++() { return static_cast<ConstIteratorBase&>(IteratorBase::operator++()); }
+		inline ConstIteratorBase operator++(int) { IteratorBase::operator++(0); }
+		inline ConstIteratorBase& operator--() { return static_cast<ConstIteratorBase&>(IteratorBase::operator--()); }
+		inline ConstIteratorBase operator--(int) { IteratorBase::operator--(0); }
+
+		const int& operator*() const { return IteratorBase::operator*(); }
+
+	protected:
+		ConstIteratorBase(Node* node) :
+			IteratorBase(node) {}
 	};
 }

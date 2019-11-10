@@ -13,6 +13,12 @@ namespace data_structure
 			Iterator(Node* node);
 		};
 
+		class ConstIterator : public ConstIteratorBase
+		{
+		public:
+			ConstIterator(Node* node);
+		};
+
 	public:
 		LinkedList();
 		LinkedList(const LinkedList& list);
@@ -29,7 +35,10 @@ namespace data_structure
 		void Clear();
 
 		Iterator Begin();
+		ConstIterator Begin() const;
+
 		Iterator End();
+		ConstIterator End() const;
 
 	private:
 		Node* head_;
