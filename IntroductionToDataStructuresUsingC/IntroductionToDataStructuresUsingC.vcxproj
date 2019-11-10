@@ -156,6 +156,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Print.cpp" />
     <ClCompile Include="TestBinarySearch.cpp" />
+    <ClCompile Include="TestLinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Print.h" />
     <ClInclude Include="TestBinarySearch.h" />
+    <ClInclude Include="TestLinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

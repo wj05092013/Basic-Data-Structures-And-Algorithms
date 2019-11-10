@@ -30,6 +30,9 @@
     <ClCompile Include="LinkedList.cpp">
       <Filter>LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="TestLinkedList.cpp">
+      <Filter>LinkedList</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
@@ -46,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="Iterator.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TestLinkedList.h">
+      <Filter>LinkedList</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

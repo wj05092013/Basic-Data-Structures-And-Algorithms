@@ -7,42 +7,9 @@ namespace data_structure
 	//
 
 	LinkedList::Iterator::Iterator(Node* node) :
-		node_(nullptr)
+		IteratorBase(node)
 	{
 	}
-
-	bool LinkedList::Iterator::HasPrev()
-	{
-		return false;
-	}
-
-	bool LinkedList::Iterator::HasNext()
-	{
-		if(node_->next !=)
-		return false;
-	}
-
-	LinkedList::Iterator& LinkedList::Iterator::GetPrev()
-	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
-	}
-
-	LinkedList::Iterator& LinkedList::Iterator::GetNext()
-	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
-	}
-
-	const LinkedList::Iterator& LinkedList::Iterator::GetPrev() const
-	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
-	}
-
-	const LinkedList::Iterator& LinkedList::Iterator::GetNext() const
-	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
-	}
-
-	
 
 	//
 	// LinkedList Class
@@ -126,6 +93,16 @@ namespace data_structure
 
 	void LinkedList::PushBack(const LinkedList& list)
 	{
+		Node* node = list.head_->next;
+
+		while (node != list.tail_)
+		{
+			PushBack(node->data);
+
+			node = node->next;
+		}
+
+		size_ += list.size_;
 	}
 
 	void LinkedList::PopFront()

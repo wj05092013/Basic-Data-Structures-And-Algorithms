@@ -2,17 +2,46 @@
 
 namespace data_structure
 {
-	template<class DataType>
-	class IIterator
+	struct Node
+	{
+		int data;
+		Node* prev;
+		Node* next;
+
+		Node() :
+			data(0),
+			prev(nullptr),
+			next(nullptr) {}
+
+		Node(int data) :
+			data(data),
+			prev(nullptr),
+			next(nullptr) {}
+
+		Node(const Node& node) :
+			data(node.data),
+			prev(nullptr),
+			next(nullptr) {}
+	};
+
+	class IteratorBase
 	{
 	public:
-		virtual bool HasPrev() = 0;
-		virtual bool HasNext() = 0;
-		virtual IIterator<DataType>& GetPrev() = 0;
-		virtual IIterator<DataType>& GetNext() = 0;
-		virtual const IIterator<DataType>& GetPrev() const = 0;
-		virtual const IIterator<DataType>& GetNext() const = 0;
+		inline virtual IteratorBase& operator++() { node_ = node_->next; return *this; }
+		inline virtual IteratorBase operator++(int) { Node* cache = node_; node_ = node_->next; return IteratorBase(cache); }
+		inline virtual IteratorBase& operator--() { node_ = node_->prev; return *this; }
+		inline virtual IteratorBase operator--(int) { Node* cache = node_; node_ = node_->prev; return IteratorBase(cache); }
 
-		// operator·Î º¯°æ
+		inline virtual int& operator*() { return node_->data; }
+		inline virtual const int& operator*() const { return node_->data; }
+
+		inline virtual bool operator==(const IteratorBase& other) const { return node_ == other.node_; }
+		inline virtual bool operator!=(const IteratorBase& other) const { return node_ != other.node_; }
+
+	protected:
+		IteratorBase(Node* node) :
+			node_(node) {}
+
+		Node* node_;
 	};
 }

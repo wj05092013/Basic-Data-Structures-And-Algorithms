@@ -6,44 +6,11 @@ namespace data_structure
 {
 	class LinkedList
 	{
-	private:
-		struct Node
-		{
-			Node* prev;
-			Node* next;
-			int data;
-
-			Node() :
-				prev(nullptr),
-				next(nullptr),
-				data(0) {}
-
-			Node(int data) :
-				prev(nullptr),
-				next(nullptr),
-				data(data) {}
-
-			Node(const Node& node) :
-				prev(nullptr),
-				next(nullptr),
-				data(node.data) {}
-		};
-
 	public:
-		class Iterator : public IIterator<int>
+		class Iterator : public IteratorBase
 		{
 		public:
 			Iterator(Node* node);
-
-			bool HasPrev() override;
-			bool HasNext() override;
-			Iterator& GetPrev() override;
-			Iterator& GetNext() override;
-			const Iterator& GetPrev() const override;
-			const Iterator& GetNext() const override;
-
-		private:
-			Node* node_;
 		};
 
 	public:
