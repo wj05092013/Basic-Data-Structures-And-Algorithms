@@ -10,7 +10,7 @@ namespace print
 		}
 	}
 
-	void PrintLinkedList(const data_structure::LinkedList& list)
+	void PrintLinkedList(const data_structure::List& list)
 	{
 		for (auto iter = list.Begin(); iter != list.End(); ++iter)
 		{

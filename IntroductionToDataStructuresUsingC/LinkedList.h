@@ -4,45 +4,140 @@
 
 namespace data_structure
 {
-	class LinkedList
+	struct ListNode
+	{
+		int data;
+		ListNode* prev;
+		ListNode* next;
+
+		ListNode() :
+			data(0),
+			prev(nullptr),
+			next(nullptr) {}
+
+		ListNode(int data) :
+			data(data),
+			prev(nullptr),
+			next(nullptr) {}
+
+		ListNode(const ListNode& node) :
+			data(node.data),
+			prev(nullptr),
+			next(nullptr) {}
+	};
+
+	class ListIterator : public IteratorBase
 	{
 	public:
-		class Iterator : public IteratorBase
-		{
-		public:
-			Iterator(Node* node);
-		};
+		ListIterator(ListNode* node) :
+			node_(node) {}
 
-		class ConstIterator : public ConstIteratorBase
+		inline ListIterator& operator++()
 		{
-		public:
-			ConstIterator(Node* node);
-		};
+			node_ = node_->next; return *this;
+		}
 
+		inline ListIterator operator++(int)
+		{
+			ListNode* cache = node_; node_ = node_->next; return ListIterator(cache);
+		}
+
+		inline ListIterator& operator--()
+		{
+			node_ = node_->prev; return *this;
+		}
+
+		inline ListIterator operator--(int)
+		{
+			ListNode* cache = node_; node_ = node_->prev; return ListIterator(cache);
+		}
+
+		inline int& operator*()
+		{
+			return node_->data;
+		}
+
+		inline const int& operator*() const
+		{
+			return node_->data;
+		}
+
+		inline bool operator==(const ListIterator& other) const
+		{
+			return node_ == other.node_;
+		}
+
+		inline bool operator!=(const ListIterator& other) const
+		{
+			return node_ != other.node_;
+		}
+
+	private:
+		ListNode* node_;
+	};
+
+	class ConstListIterator : public ListIterator
+	{
 	public:
-		LinkedList();
-		LinkedList(const LinkedList& list);
-		~LinkedList();
+		ConstListIterator(ListNode* node) :
+			ListIterator(node) {}
+
+		inline ConstListIterator& operator++()
+		{
+			return static_cast<ConstListIterator&>(ListIterator::operator++());
+		}
+
+		inline ConstListIterator operator++(int)
+		{
+			ListIterator::operator++(0);
+		}
+
+		inline ConstListIterator& operator--()
+		{
+			return static_cast<ConstListIterator&>(ListIterator::operator--());
+		}
+
+		inline ConstListIterator operator--(int)
+		{
+			ListIterator::operator--(0);
+		}
+
+		inline const int& operator*() const
+		{
+			return ListIterator::operator*();
+		}
+	};
+
+	class List
+	{
+	public:
+		List();
+		List(const List& list);
+		~List();
 
 		void PushFront(int data);
-		void PushFront(const LinkedList& list);
+		void PushFront(const List& list);
 		void PushBack(int data);
-		void PushBack(const LinkedList& list);
+		void PushBack(const List& list);
 
 		void PopFront();
 		void PopBack();
 
 		void Clear();
+		int Size() const;
 
-		Iterator Begin();
-		ConstIterator Begin() const;
+		int Front() const;
+		int Back() const;
 
-		Iterator End();
-		ConstIterator End() const;
+		ListIterator Begin();
+		ConstListIterator Begin() const;
+
+		ListIterator End();
+		ConstListIterator End() const;
 
 	private:
-		Node* head_;
-		Node* tail_;
+		ListNode* head_;
+		ListNode* tail_;
 		int size_;
 	};
 }

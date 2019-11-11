@@ -3,44 +3,26 @@
 namespace data_structure
 {
 	//
-	// Iterator Class
+	// List Class
 	//
 
-	LinkedList::Iterator::Iterator(Node* node) :
-		IteratorBase(node)
-	{
-	}
-
-	//
-	// ConstIterator Class
-	//
-
-	LinkedList::ConstIterator::ConstIterator(Node* node) :
-		ConstIteratorBase(node)
-	{
-	}
-
-	//
-	// LinkedList Class
-	//
-
-	LinkedList::LinkedList() :
+	List::List() :
 		size_(0)
 	{
 		// Create dummies.
-		head_ = new Node();
-		tail_ = new Node();
+		head_ = new ListNode();
+		tail_ = new ListNode();
 
 		head_->next = tail_;
 		tail_->prev = head_;
 	}
 
-	LinkedList::LinkedList(const LinkedList& list) :
+	List::List(const List& list) :
 		size_(list.size_)
 	{
 		Clear();
 
-		Node* node = list.head_->next;
+		ListNode* node = list.head_->next;
 
 		while (node != list.tail_)
 		{
@@ -50,7 +32,7 @@ namespace data_structure
 		}
 	}
 
-	LinkedList::~LinkedList()
+	List::~List()
 	{
 		Clear();
 
@@ -58,10 +40,10 @@ namespace data_structure
 		delete tail_;
 	}
 
-	void LinkedList::PushFront(int data)
+	void List::PushFront(int data)
 	{
 		// Create a new node.
-		Node* node = new Node(data);
+		ListNode* node = new ListNode(data);
 		node->prev = head_;
 		node->next = head_->next;
 
@@ -72,9 +54,9 @@ namespace data_structure
 		++size_;
 	}
 
-	void LinkedList::PushFront(const LinkedList& list)
+	void List::PushFront(const List& list)
 	{
-		Node* node = list.tail_->prev;
+		ListNode* node = list.tail_->prev;
 
 		while (node != list.head_)
 		{
@@ -86,10 +68,10 @@ namespace data_structure
 		size_ += list.size_;
 	}
 
-	void LinkedList::PushBack(int data)
+	void List::PushBack(int data)
 	{
 		// Create a new node.
-		Node* node = new Node(data);
+		ListNode* node = new ListNode(data);
 		node->prev = tail_->prev;
 		node->next = tail_;
 
@@ -100,9 +82,9 @@ namespace data_structure
 		++size_;
 	}
 
-	void LinkedList::PushBack(const LinkedList& list)
+	void List::PushBack(const List& list)
 	{
-		Node* node = list.head_->next;
+		ListNode* node = list.head_->next;
 
 		while (node != list.tail_)
 		{
@@ -114,9 +96,9 @@ namespace data_structure
 		size_ += list.size_;
 	}
 
-	void LinkedList::PopFront()
+	void List::PopFront()
 	{
-		Node* node = head_->next;
+		ListNode* node = head_->next;
 
 		head_->next = node->next;
 		node->next->prev = head_;
@@ -126,9 +108,9 @@ namespace data_structure
 		--size_;
 	}
 
-	void LinkedList::PopBack()
+	void List::PopBack()
 	{
-		Node* node = tail_->prev;
+		ListNode* node = tail_->prev;
 
 		tail_->prev = node->prev;
 		node->prev->next = tail_;
@@ -138,9 +120,9 @@ namespace data_structure
 		--size_;
 	}
 
-	void LinkedList::Clear()
+	void List::Clear()
 	{
-		Node* node = head_->next;
+		ListNode* node = head_->next;
 
 		while (node != tail_)
 		{
@@ -154,23 +136,38 @@ namespace data_structure
 		size_ = 0;
 	}
 
-	LinkedList::Iterator LinkedList::Begin()
+	int List::Size() const
 	{
-		return Iterator(head_->next);
+		return size_;
 	}
 
-	LinkedList::ConstIterator LinkedList::Begin() const
+	int List::Front() const
 	{
-		return ConstIterator(head_->next);
+		return *Begin();
 	}
 
-	LinkedList::Iterator LinkedList::End()
+	int List::Back() const
 	{
-		return Iterator(tail_);
+		return *(--End());
 	}
 
-	LinkedList::ConstIterator LinkedList::End() const
+	ListIterator List::Begin()
 	{
-		return ConstIterator(tail_);
+		return ListIterator(head_->next);
+	}
+
+	ConstListIterator List::Begin() const
+	{
+		return ConstListIterator(head_->next);
+	}
+
+	ListIterator List::End()
+	{
+		return ListIterator(tail_);
+	}
+
+	ConstListIterator List::End() const
+	{
+		return ConstListIterator(tail_);
 	}
 }

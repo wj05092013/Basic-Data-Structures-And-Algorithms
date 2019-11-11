@@ -7,5 +7,5 @@
 namespace print
 {
 	void PrintArray(const std::vector<int>& arr);
-	void PrintLinkedList(const data_structure::LinkedList& list);
+	void PrintLinkedList(const data_structure::List& list);
 }

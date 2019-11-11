@@ -5,7 +5,7 @@ namespace test_linked_list
 {
 	void Test()
 	{
-		data_structure::LinkedList list;
+		data_structure::List list;
 
 		list.PushBack(2);
 		std::cout << "PushBack(2)" << std::endl;
@@ -45,10 +45,15 @@ namespace test_linked_list
 
 		list.PopFront();
 		std::cout << "PopFront()" << std::endl;
+		std::cout << "Size(): " << list.Size() << std::endl;
 		print::PrintLinkedList(list); std::cout << std::endl << std::endl;
+
+		std::cout << "Front(): " << list.Front() << std::endl;
+		std::cout << "Back(): " << list.Back() << std::endl << std::endl;
 
 		list.Clear();
 		std::cout << "Clear()" << std::endl;
+		std::cout << "Size(): " << list.Size() << std::endl;
 		print::PrintLinkedList(list); std::cout << std::endl << std::endl;
 	}
 }

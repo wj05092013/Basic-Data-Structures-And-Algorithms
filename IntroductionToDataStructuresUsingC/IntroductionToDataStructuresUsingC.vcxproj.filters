@@ -13,6 +13,9 @@
     <Filter Include="LinkedList">
       <UniqueIdentifier>{8bbedd10-1c08-4e18-8ea9-9545308e07b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Set">
+      <UniqueIdentifier>{10b07738-678a-4f70-8094-76ff9a81dfa8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -33,6 +36,9 @@
     <ClCompile Include="TestLinkedList.cpp">
       <Filter>LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="Set.cpp">
+      <Filter>Set</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
@@ -52,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="TestLinkedList.h">
       <Filter>LinkedList</Filter>
+    </ClInclude>
+    <ClInclude Include="Set.h">
+      <Filter>Set</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
