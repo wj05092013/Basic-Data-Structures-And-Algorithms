@@ -53,7 +53,7 @@ namespace data_structure
 		inline ConstIteratorBase& operator--() { return static_cast<ConstIteratorBase&>(IteratorBase::operator--()); }
 		inline ConstIteratorBase operator--(int) { IteratorBase::operator--(0); }
 
-		const int& operator*() const { return IteratorBase::operator*(); }
+		inline const int& operator*() const { return IteratorBase::operator*(); }
 
 	protected:
 		ConstIteratorBase(Node* node) :
