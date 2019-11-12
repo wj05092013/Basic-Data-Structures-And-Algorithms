@@ -108,6 +108,7 @@ namespace data_structure
 	public:
 		Set();
 		Set(const Set& set);
+		~Set();
 
 		void Insert(int data);
 		void Erase(int data);

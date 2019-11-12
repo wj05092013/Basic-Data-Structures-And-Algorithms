@@ -1,5 +1,6 @@
 ﻿#include "TestBinarySearch.h"
 #include "TestLinkedList.h"
+#include "TestSet.h"
 
 int main()
 {
@@ -12,4 +13,6 @@ int main()
 	test_binary_search::Test(test_binary_search::eCase7);
 
 	test_linked_list::Test();*/
+
+	test_set::Test();
 }

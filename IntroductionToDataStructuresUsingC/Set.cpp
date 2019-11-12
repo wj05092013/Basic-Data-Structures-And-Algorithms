@@ -81,6 +81,12 @@ namespace data_structure
 		UpdateBegin();
 	}
 
+	Set::~Set()
+	{
+		Clear();
+		delete root_;
+	}
+
 	void Set::Insert(int data)
 	{
 		// The real tree starts from the left-side child of the root node.
@@ -133,7 +139,7 @@ namespace data_structure
 		// 'proxy' is a node which will be deleted instead of the 'target' node.
 		//	Initialize 'proxy' and 'proxy_child' as if the target has only right child node.
 		TreeNode* proxy = target;
-		TreeNode* proxy_child = target->right_child;
+		TreeNode* proxy_child = nullptr;
 
 		// If the target has left child node, find the biggest one from the left subtree
 		//  of the target to use it as a deletion proxy.
@@ -146,6 +152,11 @@ namespace data_structure
 
 			proxy_child = proxy->left_child;
 		}
+		// If the target has only right child node,
+		else
+		{
+			proxy_child = proxy->right_child;
+		}
 
 		// Distinct which side the proxy node is on from the parent node.
 		TreeNode** parent_to_proxy = &proxy->parent->left_child;
@@ -154,11 +165,15 @@ namespace data_structure
 
 		// Link the parent and the child of the proxy node.
 		*parent_to_proxy = proxy_child;
-		proxy_child->parent = proxy->parent;
+		if(proxy_child != nullptr)
+			proxy_child->parent = proxy->parent;
 
 		// Update the begin position.
 		if (proxy == begin_)
 			begin_ = proxy->parent;
+
+		// Copy the proxy data value to the target node.
+		target->data = proxy->data;
 
 		// Delete the proxy node.
 		delete proxy;
