@@ -158,6 +158,7 @@
     <ClCompile Include="Set.cpp" />
     <ClCompile Include="TestBinarySearch.cpp" />
     <ClCompile Include="TestLinkedList.cpp" />
+    <ClCompile Include="TestSet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Set.h" />
     <ClInclude Include="TestBinarySearch.h" />
     <ClInclude Include="TestLinkedList.h" />
+    <ClInclude Include="TestSet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

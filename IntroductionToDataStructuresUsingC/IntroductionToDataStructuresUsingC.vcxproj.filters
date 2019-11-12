@@ -39,6 +39,9 @@
     <ClCompile Include="Set.cpp">
       <Filter>Set</Filter>
     </ClCompile>
+    <ClCompile Include="TestSet.cpp">
+      <Filter>Set</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
@@ -60,6 +63,9 @@
       <Filter>LinkedList</Filter>
     </ClInclude>
     <ClInclude Include="Set.h">
+      <Filter>Set</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSet.h">
       <Filter>Set</Filter>
     </ClInclude>
   </ItemGroup>

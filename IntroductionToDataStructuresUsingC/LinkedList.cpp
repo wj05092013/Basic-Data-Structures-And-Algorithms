@@ -17,8 +17,7 @@ namespace data_structure
 		tail_->prev = head_;
 	}
 
-	List::List(const List& list) :
-		size_(list.size_)
+	List::List(const List& list)
 	{
 		Clear();
 
@@ -30,6 +29,8 @@ namespace data_structure
 
 			node = node->next;
 		}
+
+		size_ = list.size_;
 	}
 
 	List::~List()

@@ -34,22 +34,26 @@ namespace data_structure
 
 		inline ListIterator& operator++()
 		{
-			node_ = node_->next; return *this;
+			node_ = node_->next;
+			return *this;
 		}
 
 		inline ListIterator operator++(int)
 		{
-			ListNode* cache = node_; node_ = node_->next; return ListIterator(cache);
+			ListNode* cache = node_; node_ = node_->next;
+			return ListIterator(cache);
 		}
 
 		inline ListIterator& operator--()
 		{
-			node_ = node_->prev; return *this;
+			node_ = node_->prev;
+			return *this;
 		}
 
 		inline ListIterator operator--(int)
 		{
-			ListNode* cache = node_; node_ = node_->prev; return ListIterator(cache);
+			ListNode* cache = node_; node_ = node_->prev;
+			return ListIterator(cache);
 		}
 
 		inline int& operator*()
@@ -84,22 +88,28 @@ namespace data_structure
 
 		inline ConstListIterator& operator++()
 		{
-			return static_cast<ConstListIterator&>(ListIterator::operator++());
+			ListIterator::operator++();
+			return *this;
 		}
 
 		inline ConstListIterator operator++(int)
 		{
-			ListIterator::operator++(0);
+			ConstListIterator temp(*this);
+			ListIterator::operator++();
+			return temp;
 		}
 
 		inline ConstListIterator& operator--()
 		{
-			return static_cast<ConstListIterator&>(ListIterator::operator--());
+			ListIterator::operator--();
+			return *this;
 		}
 
 		inline ConstListIterator operator--(int)
 		{
-			ListIterator::operator--(0);
+			ConstListIterator temp(*this);
+			ListIterator::operator--();
+			return temp;
 		}
 
 		inline const int& operator*() const

@@ -17,4 +17,12 @@ namespace print
 			std::cout << *iter << " ";
 		}
 	}
+
+	void PrintSet(const data_structure::Set& set)
+	{
+		for (auto iter = set.Begin(); iter != set.End(); ++iter)
+		{
+			std::cout << *iter << " ";
+		}
+	}
 }
