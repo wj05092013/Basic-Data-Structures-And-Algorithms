@@ -16,6 +16,9 @@
     <Filter Include="Set">
       <UniqueIdentifier>{10b07738-678a-4f70-8094-76ff9a81dfa8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PriorityQueue">
+      <UniqueIdentifier>{93f2de8b-ed5f-4d82-a3c5-81091c0dcac1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -42,6 +45,9 @@
     <ClCompile Include="TestSet.cpp">
       <Filter>Set</Filter>
     </ClCompile>
+    <ClCompile Include="Heap.cpp">
+      <Filter>PriorityQueue</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
@@ -67,6 +73,15 @@
     </ClInclude>
     <ClInclude Include="TestSet.h">
       <Filter>Set</Filter>
+    </ClInclude>
+    <ClInclude Include="Compare.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Heap.hpp">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
