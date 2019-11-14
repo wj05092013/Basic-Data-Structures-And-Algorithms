@@ -5,6 +5,10 @@ namespace test_priority_queue
 {
 	void Test()
 	{
+		std::cout << "//////////////////////////////" << std::endl;
+		std::cout << "// Min-Heap Priority Queue  //" << std::endl;
+		std::cout << "//////////////////////////////" << std::endl << std::endl;
+
 		//
 		// Init
 		//
@@ -92,6 +96,65 @@ namespace test_priority_queue
 
 		std::cout << "Clear()" << std::endl;
 		prque.Clear();
-		std::cout << "Size(): " << prque.Size() << std::endl << std::endl;
+		std::cout << "Size(): " << prque.Size() << std::endl << std::endl << std::endl;
+
+
+		std::cout << "//////////////////////////////" << std::endl;
+		std::cout << "// Max-Heap Priority Queue  //" << std::endl;
+		std::cout << "//////////////////////////////" << std::endl << std::endl;
+
+		//
+		// Init
+		//
+
+		std::cout << "Create" << std::endl;
+		data_structure::PriorityQueue<data_structure::compare::Greater<int>> prque_max;
+		std::cout << "Capacity(): " << prque_max.Capacity() << std::endl << std::endl;
+
+		//
+		// Push
+		//
+
+		std::cout << "Push(): ";
+		for (size_t i = 0; i < arr.size(); ++i)
+		{
+			std::cout << arr[i] << " ";
+			prque_max.Push(arr[i]);
+		}
+		std::cout << std::endl;
+		std::cout << "Size(): " << prque_max.Size() << std::endl << std::endl;
+
+		//
+		// Top & Pop
+		//
+
+		std::cout << "Top(): ";
+		for (size_t i = 0; i < arr.size(); ++i)
+		{
+			std::cout << prque_max.Top() << " ";
+			arr[i] = prque_max.Pop();
+		}
+		std::cout << std::endl;
+		std::cout << std::endl;
+
+		//
+		// After Pop
+		//
+
+		std::cout << "Pop(): ";
+		for (size_t i = 0; i < arr.size(); ++i)
+		{
+			std::cout << arr[i] << " ";
+		}
+		std::cout << std::endl;
+		std::cout << "Size(): " << prque_max.Size() << std::endl << std::endl;
+
+		//
+		// Clear
+		//
+
+		std::cout << "Clear()" << std::endl;
+		prque_max.Clear();
+		std::cout << "Size(): " << prque_max.Size() << std::endl << std::endl << std::endl;
 	}
 }
