@@ -93,8 +93,6 @@ namespace data_structure
 					arr_[curr] = arr_[child_idx];
 					curr = child_idx;
 				}
-				else
-					break;		// Found new position.
 			}
 			// If the current node has just left child node.
 			else if (left_child_idx == end_idx_)
@@ -104,8 +102,6 @@ namespace data_structure
 					arr_[curr] = arr_[left_child_idx];
 					curr = left_child_idx;
 				}
-				else
-					break;		// Found new position.
 			}
 			// If the current node has no child.
 			else

@@ -72,10 +72,11 @@ namespace data_structure
 		void Clear();
 
 		void Push(int data);
-		void Pop();
+		int Pop();
 		int Top() const;
 
 		int Size() const;
+		int Capacity() const;
 		void Reserve(int size);
 
 		inline ConstPriorityQueueIterator Begin() const

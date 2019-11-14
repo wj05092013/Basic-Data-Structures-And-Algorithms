@@ -45,6 +45,9 @@
     <ClCompile Include="TestSet.cpp">
       <Filter>Set</Filter>
     </ClCompile>
+    <ClCompile Include="TestPriorityQueue.cpp">
+      <Filter>PriorityQueue</Filter>
+    </ClCompile>
     <ClCompile Include="PriorityQueue.hpp">
       <Filter>PriorityQueue</Filter>
     </ClCompile>
@@ -81,6 +84,9 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="PriorityQueue.h">
+      <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="TestPriorityQueue.h">
       <Filter>PriorityQueue</Filter>
     </ClInclude>
   </ItemGroup>
