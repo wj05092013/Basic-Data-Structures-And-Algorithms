@@ -45,7 +45,7 @@
     <ClCompile Include="TestSet.cpp">
       <Filter>Set</Filter>
     </ClCompile>
-    <ClCompile Include="Heap.cpp">
+    <ClCompile Include="PriorityQueue.hpp">
       <Filter>PriorityQueue</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,11 +77,11 @@
     <ClInclude Include="Compare.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="Heap.hpp">
-      <Filter>PriorityQueue</Filter>
-    </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>PriorityQueue</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

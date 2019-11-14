@@ -100,7 +100,7 @@ namespace test_set
 		//
 
 		print::PrintSet(set); std::cout << std::endl;
-		data_structure::SetIterator iter = set.Find(2);
+		data_structure::ConstSetIterator iter = set.Find(2);
 		std::cout << "Find(2): " << *iter << std::endl;
 		std::cout << "++iter: " << *(++iter) << std::endl;
 		std::cout << "iter++: " << *(iter++) << std::endl;

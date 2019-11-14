@@ -30,77 +30,34 @@ namespace data_structure
 			right_child(nullptr) {}
 	};
 
-	class SetIterator : public IteratorBase
+	class ConstSetIterator : public IteratorBase
 	{
 	public:
-		SetIterator(TreeNode* node) :
+		ConstSetIterator(TreeNode* node) :
 			node_(node) {}
 
-		SetIterator& operator++();
-		SetIterator operator++(int);
-		SetIterator& operator--();
-		SetIterator operator--(int);
-
-		inline int& operator*()
-		{
-			return node_->data;
-		}
+		ConstSetIterator& operator++();
+		ConstSetIterator operator++(int);
+		ConstSetIterator& operator--();
+		ConstSetIterator operator--(int);
 
 		inline const int& operator*() const
 		{
 			return node_->data;
 		}
 
-		inline bool operator==(const SetIterator& other) const
+		inline bool operator==(const ConstSetIterator& other) const
 		{
 			return node_ == other.node_;
 		}
 
-		inline bool operator!=(const SetIterator& other) const
+		inline bool operator!=(const ConstSetIterator& other) const
 		{
 			return node_ != other.node_;
 		}
 
 	private:
 		TreeNode* node_;
-	};
-
-	class ConstSetIterator : public SetIterator
-	{
-	public:
-		ConstSetIterator(TreeNode* node) :
-			SetIterator(node) {}
-
-		inline ConstSetIterator operator++()
-		{
-			SetIterator::operator++();
-			return *this;
-		}
-
-		ConstSetIterator operator++(int)
-		{
-			ConstSetIterator temp(*this);
-			SetIterator::operator++();
-			return *this;
-		}
-
-		ConstSetIterator& operator--()
-		{
-			SetIterator::operator--();
-			return *this;
-		}
-
-		ConstSetIterator operator--(int)
-		{
-			ConstSetIterator temp(*this);
-			SetIterator::operator--();
-			return temp;
-		}
-
-		const int& operator*() const
-		{
-			return SetIterator::operator*();
-		}
 	};
 
 	class Set
@@ -116,12 +73,9 @@ namespace data_structure
 		void Clear();
 		int Size() const;
 
-		SetIterator Find(int data);
+		ConstSetIterator Find(int data);
 
-		SetIterator Begin();
 		ConstSetIterator Begin() const;
-
-		SetIterator End();
 		ConstSetIterator End() const;
 
 	private:

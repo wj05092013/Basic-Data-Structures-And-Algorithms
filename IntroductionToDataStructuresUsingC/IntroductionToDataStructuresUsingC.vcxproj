@@ -152,7 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp" />
-    <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="PriorityQueue.hpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Print.cpp" />
@@ -163,7 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
-    <ClInclude Include="Heap.hpp" />
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Compare.h" />

@@ -6,7 +6,7 @@ namespace data_structure
 	// SetIterator Class
 	//
 
-	SetIterator& SetIterator::operator++()
+	ConstSetIterator& ConstSetIterator::operator++()
 	{
 		if (node_->right_child != nullptr)
 		{
@@ -24,14 +24,14 @@ namespace data_structure
 		return *this;
 	}
 
-	SetIterator SetIterator::operator++(int)
+	ConstSetIterator ConstSetIterator::operator++(int)
 	{
 		TreeNode* temp = node_;
 		operator++();
-		return SetIterator(temp);
+		return ConstSetIterator(temp);
 	}
 
-	SetIterator& SetIterator::operator--()
+	ConstSetIterator& ConstSetIterator::operator--()
 	{
 		if (node_->left_child != nullptr)
 		{
@@ -49,11 +49,11 @@ namespace data_structure
 		return *this;
 	}
 
-	SetIterator SetIterator::operator--(int)
+	ConstSetIterator ConstSetIterator::operator--(int)
 	{
 		TreeNode* temp = node_;
 		operator--();
-		return SetIterator(temp);
+		return ConstSetIterator(temp);
 	}
 
 	//
@@ -194,7 +194,7 @@ namespace data_structure
 		return size_;
 	}
 
-	SetIterator Set::Find(int data)
+	ConstSetIterator Set::Find(int data)
 	{
 		TreeNode* target = root_->left_child;
 		while (target != nullptr)
@@ -204,26 +204,16 @@ namespace data_structure
 			else if (target->data < data)
 				target = target->right_child;
 			else
-				return SetIterator(target);		// Target found.
+				return ConstSetIterator(target);		// Target found.
 		}
 
 		// Target not found.
 		return End();
 	}
 
-	SetIterator Set::Begin()
-	{
-		return SetIterator(begin_);
-	}
-
 	ConstSetIterator Set::Begin() const
 	{
 		return ConstSetIterator(begin_);
-	}
-
-	SetIterator Set::End()
-	{
-		return SetIterator(root_);
 	}
 
 	ConstSetIterator Set::End() const

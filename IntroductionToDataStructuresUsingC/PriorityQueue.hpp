@@ -1,46 +1,51 @@
-#include "Heap.hpp"
+#include "PriorityQueue.h"
 #include "Math.h"
 
 namespace data_structure
 {
-	const int Heap<class Compare>::kDefaultSize = 64;
+	template<class Compare>
+	const int PriorityQueue<Compare>::kDefaultSize = 4;
 
 	template<class Compare>
-	Heap<Compare>::Heap() : 
+	PriorityQueue<Compare>::PriorityQueue() : 
 		arr_(nullptr),
 		end_idx_(0),
-		arr_size_(kDefaultSize)
+		arr_size_(kDefaultSize + 1)
 	{
 		arr_ = new int[arr_size_] {};
 	}
 
 	template<class Compare>
-	Heap<Compare>::Heap(int size) :
+	PriorityQueue<Compare>::PriorityQueue(int reserve_size) :
 		arr_(nullptr),
 		end_idx_(0)
 	{
-		arr_ = new int[size + 1];
+		arr_size_ = reserve_size + 1;
+		arr_ = new int[arr_size_];
 	}
 
 	template<class Compare>
-	Heap<Compare>::~Heap()
+	PriorityQueue<Compare>::~PriorityQueue()
 	{
 		Clear();
+
+		delete[]arr_;
 	}
 
 	template<class Compare>
-	void Heap<Compare>::Clear()
+	void PriorityQueue<Compare>::Clear()
 	{
+		end_idx_ = 0;
 	}
 
 	template<class Compare>
-	void Heap<Compare>::Push(int data)
+	void PriorityQueue<Compare>::Push(int data)
 	{
-		// Resize the array if it needs.
+		// Resize the memory if it needs.
 		if (end_idx_ == arr_size_ - 1)
 		{
-			int size = math::Max(kDefaultSize, end_idx_ * 2);
-			Resize(size);
+			int size = math::Max(kDefaultSize + 1, end_idx_ * 2);
+			Reserve(size);
 		}
 		
 		++end_idx_;
@@ -60,16 +65,15 @@ namespace data_structure
 	}
 
 	template<class Compare>
-	void Heap<Compare>::Pop()
+	void PriorityQueue<Compare>::Pop()
 	{
 		int data = arr_[end_idx_];
 
 		int curr = 1;
-		int child = curr;
 		int left_child_idx = 0;
 		int right_child_idx = 0;
 
-		while()
+		while (true)
 		{
 			left_child_idx = LChild(curr);
 			right_child_idx = RChild(curr);
@@ -78,7 +82,6 @@ namespace data_structure
 			if (right_child_idx <= end_idx_)
 			{
 				int child_idx = right_child_idx;
-
 				if (compare_(arr_[left_child_idx], arr_[right_child_idx]))
 					child_idx = left_child_idx;
 
@@ -91,31 +94,39 @@ namespace data_structure
 			// If the current node has just left child node.
 			else if (left_child_idx == end_idx_)
 			{
-
+				if (compare_(arr_[left_child_idx], data))
+				{
+					arr_[curr] = arr_[left_child_idx];
+					curr = left_child_idx;
+				}
 			}
+			// If the current node has no child.
+			else
+				break;
 		}
 
+		arr_[curr] = data;
 		--end_idx_;
 	}
 
 	template<class Compare>
-	int Heap<Compare>::Top() const
+	int PriorityQueue<Compare>::Top() const
 	{
 		return arr_[1];
 	}
 
 	template<class Compare>
-	int Heap<Compare>::Size() const
+	int PriorityQueue<Compare>::Size() const
 	{
 		return end_idx_ - 1;
 	}
 
 	template<class Compare>
-	void Heap<Compare>::Resize(int size)
+	void PriorityQueue<Compare>::Reserve(int size)
 	{
 		int* resized = new int[size] {};
 		
-		for (int = 1; i <= end_idx_; ++i)
+		for (int i = 1; i <= end_idx_; ++i)
 			resized[i] = arr_[i];
 
 		delete[]arr_;
@@ -123,19 +134,19 @@ namespace data_structure
 	}
 
 	template<class Compare>
-	int Heap<Compare>::Parent(int idx)
+	int PriorityQueue<Compare>::Parent(int idx)
 	{
 		return idx / 2;
 	}
 
 	template<class Compare>
-	int Heap<Compare>::LChild(int idx)
+	int PriorityQueue<Compare>::LChild(int idx)
 	{
 		return idx * 2;
 	}
 
 	template<class Compare>
-	int Heap<Compare>::RChild(int idx)
+	int PriorityQueue<Compare>::RChild(int idx)
 	{
 		return idx * 2 + 1;
 	}
