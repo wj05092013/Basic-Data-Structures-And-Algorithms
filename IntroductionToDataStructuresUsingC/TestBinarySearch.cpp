@@ -25,7 +25,7 @@ namespace test_binary_search
 
 	void Test(ECaseNum case_num)
 	{
-		std::cout << "Test Case " << case_num+1 << ": ";
+		std::cout << "Test Case " << case_num + 1 << ": ";
 		print::PrintArray(test_cases[case_num]);
 		std::cout << std::endl;
 
@@ -38,5 +38,16 @@ namespace test_binary_search
 		else
 			std::cout << "Target Index: " << target_idx << std::endl;
 		std::cout << std::endl;
+	}
+
+	void TestAll()
+	{
+		Test(ECaseNum::eCase1);
+		Test(ECaseNum::eCase2);
+		Test(ECaseNum::eCase3);
+		Test(ECaseNum::eCase4);
+		Test(ECaseNum::eCase5);
+		Test(ECaseNum::eCase6);
+		Test(ECaseNum::eCase7);
 	}
 }

@@ -108,7 +108,7 @@ namespace test_priority_queue
 		//
 
 		std::cout << "Create" << std::endl;
-		data_structure::PriorityQueue<data_structure::compare::Greater<int>> prque_max;
+		data_structure::PriorityQueue<algorithm::compare::Greater<int>> prque_max;
 		std::cout << "Capacity(): " << prque_max.Capacity() << std::endl << std::endl;
 
 		//

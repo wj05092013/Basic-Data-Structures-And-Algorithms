@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "Compare.h"
+#include "Algorithm.h"
 #include "Iterator.h"
 
 namespace data_structure
@@ -61,7 +61,7 @@ namespace data_structure
 
 	// Priority Queue is implemented using the Heap implementation method.
 	//	Default is Min-Heap.
-	template<class Compare = compare::Less<int>>
+	template<class Compare = algorithm::compare::Less<int>>
 	class PriorityQueue
 	{
 	public:

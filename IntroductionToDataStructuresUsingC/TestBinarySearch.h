@@ -19,4 +19,5 @@ namespace test_binary_search
 	extern const std::vector<int> targets;
 
 	void Test(ECaseNum case_num);
+	void TestAll();
 }

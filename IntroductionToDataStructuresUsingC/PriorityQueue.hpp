@@ -46,7 +46,7 @@ namespace data_structure
 		// Resize the memory if it needs.
 		if (end_idx_ == arr_size_ - 1)
 		{
-			int size = math::Max(kDefaultSize, end_idx_ * 2);
+			int size = algorithm::Max(kDefaultSize, end_idx_ * 2);
 			Reserve(size);
 		}
 		
@@ -143,7 +143,7 @@ namespace data_structure
 
 		int* resized = new int[arr_size_] {};
 		
-		int end_idx = math::Min(end_idx_, arr_size_ - 1);
+		int end_idx = algorithm::Min(end_idx_, arr_size_ - 1);
 
 		for (int i = 1; i <= end_idx; ++i)
 			resized[i] = arr_[i];

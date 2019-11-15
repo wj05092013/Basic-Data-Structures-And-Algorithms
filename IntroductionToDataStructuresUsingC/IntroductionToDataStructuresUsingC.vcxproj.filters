@@ -19,6 +19,9 @@
     <Filter Include="PriorityQueue">
       <UniqueIdentifier>{93f2de8b-ed5f-4d82-a3c5-81091c0dcac1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SelectionSort">
+      <UniqueIdentifier>{d8cb969f-8113-43eb-880a-16fd107e60bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -51,6 +54,12 @@
     <ClCompile Include="PriorityQueue.hpp">
       <Filter>PriorityQueue</Filter>
     </ClCompile>
+    <ClCompile Include="SelectionSort.cpp">
+      <Filter>SelectionSort</Filter>
+    </ClCompile>
+    <ClCompile Include="TestSelectionSort.cpp">
+      <Filter>SelectionSort</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
@@ -77,17 +86,20 @@
     <ClInclude Include="TestSet.h">
       <Filter>Set</Filter>
     </ClInclude>
-    <ClInclude Include="Compare.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="PriorityQueue.h">
       <Filter>PriorityQueue</Filter>
     </ClInclude>
     <ClInclude Include="TestPriorityQueue.h">
       <Filter>PriorityQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionSort.h">
+      <Filter>SelectionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithm.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TestSelectionSort.h">
+      <Filter>SelectionSort</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
