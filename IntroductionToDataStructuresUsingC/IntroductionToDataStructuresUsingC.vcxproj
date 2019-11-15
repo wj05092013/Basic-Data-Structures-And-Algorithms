@@ -152,11 +152,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp" />
+    <ClCompile Include="InsertionSort.cpp" />
+    <ClCompile Include="MergeSort.cpp" />
     <ClCompile Include="PriorityQueue.hpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Print.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
+    <ClCompile Include="TestInsertionSort.cpp" />
+    <ClCompile Include="TestMergeSort.cpp" />
     <ClCompile Include="TestPriorityQueue.cpp" />
     <ClCompile Include="Set.cpp" />
     <ClCompile Include="TestBinarySearch.cpp" />
@@ -166,12 +170,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="InsertionSort.h" />
+    <ClInclude Include="MergeSort.h" />
     <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Print.h" />
     <ClInclude Include="SelectionSort.h" />
+    <ClInclude Include="TestInsertionSort.h" />
+    <ClInclude Include="TestMergeSort.h" />
     <ClInclude Include="TestPriorityQueue.h" />
     <ClInclude Include="Set.h" />
     <ClInclude Include="TestBinarySearch.h" />
