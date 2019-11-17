@@ -28,6 +28,9 @@
     <Filter Include="MergeSort">
       <UniqueIdentifier>{d4257d5d-54f7-4637-b114-f67f25e2f144}</UniqueIdentifier>
     </Filter>
+    <Filter Include="QuickSort">
+      <UniqueIdentifier>{66132e6f-c945-4e90-8088-e1882eef2b93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -77,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="TestMergeSort.cpp">
       <Filter>MergeSort</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort.cpp">
+      <Filter>QuickSort</Filter>
+    </ClCompile>
+    <ClCompile Include="TestQuickSort.cpp">
+      <Filter>QuickSort</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +139,12 @@
     </ClInclude>
     <ClInclude Include="TestMergeSort.h">
       <Filter>MergeSort</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.h">
+      <Filter>QuickSort</Filter>
+    </ClInclude>
+    <ClInclude Include="TestQuickSort.h">
+      <Filter>QuickSort</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
