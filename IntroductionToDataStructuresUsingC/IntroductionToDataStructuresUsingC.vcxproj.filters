@@ -1,43 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="BinarySearch">
-      <UniqueIdentifier>{9a9bd7b5-7621-43c3-8055-45330f2567ef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{b399c89b-d59b-425d-a3b7-79ded68f005d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{1ac5de73-a22d-42c9-ad1e-1ed700048b7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="LinkedList">
-      <UniqueIdentifier>{8bbedd10-1c08-4e18-8ea9-9545308e07b4}</UniqueIdentifier>
+    <Filter Include="Sort">
+      <UniqueIdentifier>{666d32b4-250c-4ea6-973f-4e3bf15af6ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Set">
-      <UniqueIdentifier>{10b07738-678a-4f70-8094-76ff9a81dfa8}</UniqueIdentifier>
+    <Filter Include="Search">
+      <UniqueIdentifier>{27d3f6ee-2f32-4298-b46c-13e3f03bc1ec}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PriorityQueue">
-      <UniqueIdentifier>{93f2de8b-ed5f-4d82-a3c5-81091c0dcac1}</UniqueIdentifier>
+    <Filter Include="Sort\QuickSort">
+      <UniqueIdentifier>{66132e6f-c945-4e90-8088-e1882eef2b93}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SelectionSort">
+    <Filter Include="Sort\SelectionSort">
       <UniqueIdentifier>{d8cb969f-8113-43eb-880a-16fd107e60bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="InsertionSort">
-      <UniqueIdentifier>{a69be9a2-9b2e-4e80-9b84-8bf24c89dd5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MergeSort">
+    <Filter Include="Sort\MergeSort">
       <UniqueIdentifier>{d4257d5d-54f7-4637-b114-f67f25e2f144}</UniqueIdentifier>
     </Filter>
-    <Filter Include="QuickSort">
-      <UniqueIdentifier>{66132e6f-c945-4e90-8088-e1882eef2b93}</UniqueIdentifier>
+    <Filter Include="Sort\InsertionSort">
+      <UniqueIdentifier>{a69be9a2-9b2e-4e80-9b84-8bf24c89dd5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search\BinarySearch">
+      <UniqueIdentifier>{9a9bd7b5-7621-43c3-8055-45330f2567ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Search\InterpolationSearch">
+      <UniqueIdentifier>{bffcdd1a-985c-4e9d-930e-fd5495eaad96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructure">
+      <UniqueIdentifier>{61bbd142-d20c-4df8-8890-911fbf5eacd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructure\LinkedList">
+      <UniqueIdentifier>{8bbedd10-1c08-4e18-8ea9-9545308e07b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructure\PriorityQueue">
+      <UniqueIdentifier>{93f2de8b-ed5f-4d82-a3c5-81091c0dcac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructure\Set">
+      <UniqueIdentifier>{10b07738-678a-4f70-8094-76ff9a81dfa8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
-      <Filter>BinarySearch</Filter>
+      <Filter>Search\BinarySearch</Filter>
     </ClCompile>
     <ClCompile Include="TestBinarySearch.cpp">
-      <Filter>BinarySearch</Filter>
+      <Filter>Search\BinarySearch</Filter>
     </ClCompile>
     <ClCompile Include="Print.cpp">
       <Filter>Common</Filter>
@@ -46,105 +58,117 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="LinkedList.cpp">
-      <Filter>LinkedList</Filter>
+      <Filter>DataStructure\LinkedList</Filter>
     </ClCompile>
     <ClCompile Include="TestLinkedList.cpp">
-      <Filter>LinkedList</Filter>
+      <Filter>DataStructure\LinkedList</Filter>
     </ClCompile>
     <ClCompile Include="Set.cpp">
-      <Filter>Set</Filter>
+      <Filter>DataStructure\Set</Filter>
     </ClCompile>
     <ClCompile Include="TestSet.cpp">
-      <Filter>Set</Filter>
+      <Filter>DataStructure\Set</Filter>
     </ClCompile>
     <ClCompile Include="TestPriorityQueue.cpp">
-      <Filter>PriorityQueue</Filter>
+      <Filter>DataStructure\PriorityQueue</Filter>
     </ClCompile>
     <ClCompile Include="PriorityQueue.hpp">
-      <Filter>PriorityQueue</Filter>
+      <Filter>DataStructure\PriorityQueue</Filter>
     </ClCompile>
     <ClCompile Include="SelectionSort.cpp">
-      <Filter>SelectionSort</Filter>
+      <Filter>Sort\SelectionSort</Filter>
     </ClCompile>
     <ClCompile Include="TestSelectionSort.cpp">
-      <Filter>SelectionSort</Filter>
+      <Filter>Sort\SelectionSort</Filter>
     </ClCompile>
     <ClCompile Include="InsertionSort.cpp">
-      <Filter>InsertionSort</Filter>
+      <Filter>Sort\InsertionSort</Filter>
     </ClCompile>
     <ClCompile Include="TestInsertionSort.cpp">
-      <Filter>InsertionSort</Filter>
+      <Filter>Sort\InsertionSort</Filter>
     </ClCompile>
     <ClCompile Include="MergeSort.cpp">
-      <Filter>MergeSort</Filter>
+      <Filter>Sort\MergeSort</Filter>
     </ClCompile>
     <ClCompile Include="TestMergeSort.cpp">
-      <Filter>MergeSort</Filter>
+      <Filter>Sort\MergeSort</Filter>
     </ClCompile>
     <ClCompile Include="QuickSort.cpp">
-      <Filter>QuickSort</Filter>
+      <Filter>Sort\QuickSort</Filter>
     </ClCompile>
     <ClCompile Include="TestQuickSort.cpp">
-      <Filter>QuickSort</Filter>
+      <Filter>Sort\QuickSort</Filter>
+    </ClCompile>
+    <ClCompile Include="InterpolationSearch.cpp">
+      <Filter>Search\InterpolationSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="TestInterpolationSearch.cpp">
+      <Filter>Search\InterpolationSearch</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BinarySearch.h">
-      <Filter>BinarySearch</Filter>
+      <Filter>Search\BinarySearch</Filter>
     </ClInclude>
     <ClInclude Include="TestBinarySearch.h">
-      <Filter>BinarySearch</Filter>
+      <Filter>Search\BinarySearch</Filter>
     </ClInclude>
     <ClInclude Include="Print.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="LinkedList.h">
-      <Filter>LinkedList</Filter>
+      <Filter>DataStructure\LinkedList</Filter>
     </ClInclude>
     <ClInclude Include="Iterator.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="TestLinkedList.h">
-      <Filter>LinkedList</Filter>
+      <Filter>DataStructure\LinkedList</Filter>
     </ClInclude>
     <ClInclude Include="Set.h">
-      <Filter>Set</Filter>
+      <Filter>DataStructure\Set</Filter>
     </ClInclude>
     <ClInclude Include="TestSet.h">
-      <Filter>Set</Filter>
+      <Filter>DataStructure\Set</Filter>
     </ClInclude>
     <ClInclude Include="PriorityQueue.h">
-      <Filter>PriorityQueue</Filter>
+      <Filter>DataStructure\PriorityQueue</Filter>
     </ClInclude>
     <ClInclude Include="TestPriorityQueue.h">
-      <Filter>PriorityQueue</Filter>
+      <Filter>DataStructure\PriorityQueue</Filter>
     </ClInclude>
     <ClInclude Include="SelectionSort.h">
-      <Filter>SelectionSort</Filter>
+      <Filter>Sort\SelectionSort</Filter>
     </ClInclude>
     <ClInclude Include="Algorithm.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="TestSelectionSort.h">
-      <Filter>SelectionSort</Filter>
+      <Filter>Sort\SelectionSort</Filter>
     </ClInclude>
     <ClInclude Include="InsertionSort.h">
-      <Filter>InsertionSort</Filter>
+      <Filter>Sort\InsertionSort</Filter>
     </ClInclude>
     <ClInclude Include="TestInsertionSort.h">
-      <Filter>InsertionSort</Filter>
+      <Filter>Sort\InsertionSort</Filter>
     </ClInclude>
     <ClInclude Include="MergeSort.h">
-      <Filter>MergeSort</Filter>
+      <Filter>Sort\MergeSort</Filter>
     </ClInclude>
     <ClInclude Include="TestMergeSort.h">
-      <Filter>MergeSort</Filter>
+      <Filter>Sort\MergeSort</Filter>
     </ClInclude>
     <ClInclude Include="QuickSort.h">
-      <Filter>QuickSort</Filter>
+      <Filter>Sort\QuickSort</Filter>
     </ClInclude>
     <ClInclude Include="TestQuickSort.h">
-      <Filter>QuickSort</Filter>
+      <Filter>Sort\QuickSort</Filter>
+    </ClInclude>
+    <ClInclude Include="InterpolationSearch.h">
+      <Filter>Search\InterpolationSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="TestInterpolationSearch.h">
+      <Filter>Search\InterpolationSearch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

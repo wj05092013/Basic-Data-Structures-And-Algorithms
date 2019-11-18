@@ -6,6 +6,7 @@
 #include "TestInsertionSort.h"
 #include "TestMergeSort.h"
 #include "TestQuickSort.h"
+#include "TestInterpolationSearch.h"
 
 int main()
 {
@@ -15,6 +16,7 @@ int main()
 	test_priority_queue::Test();
 	test_selection_sort::TestAll();
 	test_insertion_sort::TestAll();
-	test_merge_sort::TestAll();*/
-	test_quick_sort::TestAll();
+	test_merge_sort::TestAll();
+	test_quick_sort::TestAll();*/
+	test_interpolation_search::TestAll();
 }
