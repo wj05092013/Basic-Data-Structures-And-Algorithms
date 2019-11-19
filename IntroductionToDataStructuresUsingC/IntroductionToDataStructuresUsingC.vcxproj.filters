@@ -43,6 +43,9 @@
     <Filter Include="DataStructure\Set">
       <UniqueIdentifier>{10b07738-678a-4f70-8094-76ff9a81dfa8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DataStructure\Hash">
+      <UniqueIdentifier>{08a8c54c-5780-41eb-a429-8e1f23017936}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="TestInterpolationSearch.cpp">
       <Filter>Search\InterpolationSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="Hash.hpp">
+      <Filter>DataStructure\Hash</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="TestInterpolationSearch.h">
       <Filter>Search\InterpolationSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="Hash.h">
+      <Filter>DataStructure\Hash</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
