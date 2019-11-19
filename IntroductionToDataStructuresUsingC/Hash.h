@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 
 namespace data_structure
 {
@@ -25,8 +26,7 @@ namespace data_structure
 	public:
 		inline Hash(int size) : arr_(size) {}
 
-		inline void SetFirstHashFunc(int(*first_func)(int)) { first_func_ = first_func; }
-		inline void SetSecondHashFunc(int(*second_func)(int)) { second_func_ = second_func; }
+		inline void SetHashFunc(std::function<int(int)> first, std::function<int(int)> second);
 
 		void Clear();
 
@@ -44,11 +44,7 @@ namespace data_structure
 	private:
 		std::vector<HashSlot<DataType>> arr_;
 
-
-
-
-		// Functor로 만들기
-		int(*first_func_)(int);
-		int(*second_func_)(int);
+		std::function<int(int)> first_func_;
+		std::function<int(int)> second_func_;
 	};
 }
