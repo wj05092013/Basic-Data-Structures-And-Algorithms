@@ -108,7 +108,7 @@
     <ClCompile Include="TestInterpolationSearch.cpp">
       <Filter>Search\InterpolationSearch</Filter>
     </ClCompile>
-    <ClCompile Include="Hash.hpp">
+    <ClCompile Include="HashTable.hpp">
       <Filter>DataStructure\Hash</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,7 +176,7 @@
     <ClInclude Include="TestInterpolationSearch.h">
       <Filter>Search\InterpolationSearch</Filter>
     </ClInclude>
-    <ClInclude Include="Hash.h">
+    <ClInclude Include="HashTable.h">
       <Filter>DataStructure\Hash</Filter>
     </ClInclude>
   </ItemGroup>

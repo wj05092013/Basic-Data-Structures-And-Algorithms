@@ -8,8 +8,12 @@
 #include "TestQuickSort.h"
 #include "TestInterpolationSearch.h"
 
+#include <unordered_map>
+
 int main()
 {
+	std::unordered_map<int, int>::iterator
+
 	/*test_binary_search::TestAll();
 	test_linked_list::Test();
 	test_set::Test();
