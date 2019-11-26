@@ -1,10 +1,169 @@
+#pragma once
+
 #include "HashTable.h"
 #include "Algorithm.h"
 
 namespace data_structure
 {
+	//
+	// HashTableIterator Class Template
+	//
+
+	template<class DataType>
+	inline HashTableIterator<DataType>::HashTableIterator() :
+		idx_(0),
+		arr_(nullptr)
+	{
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType>::HashTableIterator(const std::vector<HashSlot<DataType>>* arr, int idx) :
+		arr_(const_cast<std::vector<HashSlot<DataType>>*>(arr)),
+		idx_(idx)
+	{
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType>& HashTableIterator<DataType>::operator++()
+	{
+		idx_ += 1;
+		int size = static_cast<int>(arr_->size());
+
+		while (idx_ < size && (*arr_)[idx_].status != ESlotStatus::eInuse)
+			++idx_;
+		
+		return *this;
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType> HashTableIterator<DataType>::operator++(int)
+	{
+		HashTableIterator origin(*this);
+		operator();
+		return origin;
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType>& HashTableIterator<DataType>::operator--()
+	{
+		int curr_idx = idx_ - 1;
+
+		while (curr_idx >= 0)
+		{
+			if ((*arr_)[curr_idx].status == ESlotStatus::eInuse)
+			{
+				idx_ = curr_idx;
+				break;
+			}
+			--curr_idx;
+		}
+		return *this;
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType> HashTableIterator<DataType>::operator--(int)
+	{
+		HashTableIterator origin(*this);
+		operator--();
+		return origin;
+	}
+
+	template<class DataType>
+	inline DataType& HashTableIterator<DataType>::operator*()
+	{
+		return (*arr_)[idx_].data;
+	}
+
+	template<class DataType>
+	inline const DataType& HashTableIterator<DataType>::operator*() const
+	{
+		return (*arr_)[idx_].data;
+	}
+
+	template<class DataType>
+	inline bool HashTableIterator<DataType>::operator==(const HashTableIterator& other) const
+	{
+		return idx_ == other.idx_;
+	}
+
+	template<class DataType>
+	inline bool HashTableIterator<DataType>::operator!=(const HashTableIterator& other) const
+	{
+		return idx_ != other.idx_;
+	}
+
+	//
+	// ConstHashTableIterator Class Template
+	//
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType>::ConstHashTableIterator() :
+		HashTableIterator<DataType>()
+	{
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType>::ConstHashTableIterator(const std::vector<HashSlot<DataType>>* arr, int idx) :
+		HashTableIterator<DataType>(arr, idx)
+	{
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType>& ConstHashTableIterator<DataType>::operator++()
+	{
+		HashTableIterator<DataType>::operator++();
+		return *this;
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType> ConstHashTableIterator<DataType>::operator++(int)
+	{
+		ConstHashTableIterator<DataType> origin(*this);
+		HashTableIterator<DataType>::operator++();
+		return origin;
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType>& ConstHashTableIterator<DataType>::operator--()
+	{
+		HashTableIterator<DataType>::operator--();
+		return *this;
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType> ConstHashTableIterator<DataType>::operator--(int)
+	{
+		ConstHashTableIterator<DataType> origin(*this);
+		HashTableIterator<DataType>::operator--();
+		return origin;
+	}
+
+	template<class DataType>
+	inline const DataType& ConstHashTableIterator<DataType>::operator*() const
+	{
+		return HashTableIterator<DataType>::operator*();
+	}
+
+	//
+	// HashTable Class Template
+	//
+
 	template<class DataType>
 	const float HashTable<DataType>::kRehashPercent = 0.75f;
+
+	template<class DataType>
+	inline HashTable<DataType>::HashTable(int minimum_size) :
+		data_count_(0),
+		arr_(algorithm::PrimeNumberBiggerThan(minimum_size))
+	{
+		hasher_1_= [this](int key)->int {
+			return key % static_cast<int>(SlotCount());
+		};
+
+		hasher_2_ = [](int key)->int {
+			return 1 + (key % 13);
+		};
+	}
 
 	template<class DataType>
 	inline HashTable<DataType>::HashTable(int minimum_size, std::function<int(int)> hasher_1, std::function<int(int)> hasher_2) :
@@ -18,7 +177,8 @@ namespace data_structure
 	template<class DataType>
 	void HashTable<DataType>::Clear()
 	{
-		for (int i = 0; i < arr_.size(); ++i)
+		int size = static_cast<int>(arr_.size());
+		for (int i = 0; i < size; ++i)
 		{
 			arr_[i].status = ESlotStatus::eEmpty;
 		}
@@ -65,7 +225,7 @@ namespace data_structure
 				if (arr_[idx].key == key)
 				{
 					arr_[idx].status = ESlotStatus::eDeleted;
-
+					--data_count_;
 					return;
 				}
 			}
@@ -79,9 +239,9 @@ namespace data_structure
 	}
 
 	template<class DataType>
-	inline const DataType& HashTable<DataType>::Find(int key) const
+	inline ConstHashTableIterator<DataType> HashTable<DataType>::Find(int key) const
 	{
-		ind idx = hasher_1_(key);
+		int idx = hasher_1_(key);
 		idx = GetWithinRangeIdx(idx);
 
 		while (true)
@@ -89,52 +249,104 @@ namespace data_structure
 			if (arr_[idx].status == ESlotStatus::eInuse)
 			{
 				if (arr_[idx].key == key)
-					return arr_[idx].data;
+					return ConstHashTableIterator<DataType>(&arr_, idx);
 			}
-			else if(arr_[idx].status == ESlotStatus::eEmpty)
-				
+			else if (arr_[idx].status == ESlotStatus::eEmpty)
+				return End();
 		}
 	}
 
 	template<class DataType>
-	inline DataType& HashTable<DataType>::Find(int key)
+	inline HashTableIterator<DataType> HashTable<DataType>::Find(int key)
 	{
-		return const_cast<DataType&>(static_cast<const HashTable<DataType>*>(this)->Find(key));
+		return HashTableIterator<DataType>(static_cast<const HashTable<DataType>*>(this)->Find(key));
 	}
 
 	template<class DataType>
 	inline int HashTable<DataType>::Size() const
 	{
-		return 0;
+		return data_count_;
 	}
 
 	template<class DataType>
 	inline int HashTable<DataType>::SlotCount() const
 	{
-		return arr_.size();
+		return static_cast<int>(arr_.size());
 	}
 
 	template<class DataType>
 	inline void HashTable<DataType>::Rehash(int minimum_size)
 	{
-	}
+		int new_size = algorithm::PrimeNumberBiggerThan(minimum_size);
+		if (new_size <= static_cast<int>(arr_.size()))
+			return;
 
-	template<class DataType>
-	inline const DataType& HashTable<DataType>::Get(int key) const
-	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
-	}
+		std::vector<HashSlot<DataType>> temp(data_count_);
+
+		int i = 0;
+		int j = 0;
+
+		// Migrate slots which are in use to temporary array.
+		while (i < data_count_)
+		{
+			while (arr_[j].status != ESlotStatus::eInuse)
+				++j;
+
+			temp[i] = arr_[j];
+			++i;
+		}
+
+		// Clear and resize the original array.
+		arr_.clear();
+		arr_.resize(new_size);
+
+		// Insert the data to the newly resized array.
+		for (int k = 0; i < data_count_; ++i)
+			Insert(temp[k].key, temp[k].data);
+	} 
 
 	template<class DataType>
 	inline const DataType& HashTable<DataType>::operator[](int key) const
 	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
+		return *Find(key);
 	}
 
 	template<class DataType>
 	inline DataType& HashTable<DataType>::operator[](int key)
 	{
-		// TODO: 여기에 반환 구문을 삽입합니다.
+		return *Find(key);
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType> HashTable<DataType>::Begin() const
+	{
+		int idx = 0;
+		while (idx < static_cast<int>(arr_.size()))
+		{
+			if (arr_[idx].status == ESlotStatus::eInuse)
+				return ConstHashTableIterator<DataType>(&arr_, idx);
+			++idx;
+		}
+
+		return End();
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType> HashTable<DataType>::Begin()
+	{
+		return HashTableIterator<DataType>(static_cast<const HashTable<DataType>*>(this)->Begin());
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType> HashTable<DataType>::End() const
+	{
+		return ConstHashTableIterator<DataType>(&arr_, static_cast<int>(arr_.size()));
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType> HashTable<DataType>::End()
+	{
+		return HashTableIterator<DataType>(&arr_, static_cast<int>(arr_.size()));
 	}
 
 	template<class DataType>

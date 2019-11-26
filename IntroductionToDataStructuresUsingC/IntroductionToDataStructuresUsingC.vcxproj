@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="HashTable.hpp" />
     <ClCompile Include="InsertionSort.cpp" />
@@ -158,10 +159,11 @@
     <ClCompile Include="MergeSort.cpp" />
     <ClCompile Include="PriorityQueue.hpp" />
     <ClCompile Include="LinkedList.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Print.cpp" />
     <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
+    <ClCompile Include="TestHashTable.cpp" />
     <ClCompile Include="TestInsertionSort.cpp" />
     <ClCompile Include="TestInterpolationSearch.cpp" />
     <ClCompile Include="TestMergeSort.cpp" />
@@ -186,6 +188,7 @@
     <ClInclude Include="Print.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="SelectionSort.h" />
+    <ClInclude Include="TestHashTable.h" />
     <ClInclude Include="TestInsertionSort.h" />
     <ClInclude Include="TestInterpolationSearch.h" />
     <ClInclude Include="TestMergeSort.h" />

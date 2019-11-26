@@ -7,13 +7,10 @@
 #include "TestMergeSort.h"
 #include "TestQuickSort.h"
 #include "TestInterpolationSearch.h"
-
-#include <unordered_map>
+#include "TestHashTable.h"
 
 int main()
 {
-	std::unordered_map<int, int>::iterator
-
 	/*test_binary_search::TestAll();
 	test_linked_list::Test();
 	test_set::Test();
@@ -21,6 +18,7 @@ int main()
 	test_selection_sort::TestAll();
 	test_insertion_sort::TestAll();
 	test_merge_sort::TestAll();
-	test_quick_sort::TestAll();*/
-	test_interpolation_search::TestAll();
+	test_quick_sort::TestAll();
+	test_interpolation_search::TestAll();*/
+	test_hash_table::Test();
 }

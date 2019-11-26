@@ -25,4 +25,12 @@ namespace print
 			std::cout << *iter << " ";
 		}
 	}
+
+	void PrintHashTable(const data_structure::HashTable<std::string>& table)
+	{
+		for (auto iter = table.Begin(); iter != table.End(); ++iter)
+		{
+			std::cout << *iter << " ";
+		}
+	}
 }
