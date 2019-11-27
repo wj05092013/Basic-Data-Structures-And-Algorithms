@@ -49,8 +49,8 @@ namespace test_hash_table
 		std::cout << "SlotCount(): " << table.SlotCount() << std::endl;
 		print::PrintHashTable(table); std::cout << std::endl << std::endl;
 
-		table.Insert(3, "dragon fruit");
-		std::cout << "Insert(3, \"dragon fruit\")" << std::endl;
+		table.Insert(3, "dragonfruit");
+		std::cout << "Insert(3, \"dragonfruit\")" << std::endl;
 		std::cout << "Size(): " << table.Size() << std::endl;
 		std::cout << "SlotCount(): " << table.SlotCount() << std::endl;
 		print::PrintHashTable(table); std::cout << std::endl << std::endl;
@@ -96,13 +96,13 @@ namespace test_hash_table
 		//
 
 		table.Erase(8);
-		std::cout << "Erase(8)" << std::endl;
+		std::cout << "Erase(8) (strawberry)" << std::endl;
 		std::cout << "Size(): " << table.Size() << std::endl;
 		std::cout << "SlotCount(): " << table.SlotCount() << std::endl;
 		print::PrintHashTable(table); std::cout << std::endl << std::endl;
 
 		table.Erase(15);
-		std::cout << "Erase(15)" << std::endl;
+		std::cout << "Erase(15) (melon)" << std::endl;
 		std::cout << "Size(): " << table.Size() << std::endl;
 		std::cout << "SlotCount(): " << table.SlotCount() << std::endl;
 		print::PrintHashTable(table); std::cout << std::endl << std::endl;
@@ -147,8 +147,8 @@ namespace test_hash_table
 		//
 
 		std::cout << "table[16]: " << table[16] << std::endl << std::endl;
-		std::cout << "table[3]: " << table[16] << std::endl << std::endl;
-		std::cout << "table[21]: " << table[16] << std::endl << std::endl;
+		std::cout << "table[3]: " << table[3] << std::endl << std::endl;
+		std::cout << "table[21]: " << table[21] << std::endl << std::endl;
 
 		table[7] = "peach";
 		std::cout << "table[7] = \"peach\" " << std::endl;

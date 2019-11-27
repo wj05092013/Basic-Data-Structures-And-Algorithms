@@ -202,7 +202,7 @@ namespace data_structure
 				return false;
 
 			idx += hasher_2_(key);
-			GetWithinRangeIdx(idx);
+			idx = GetWithinRangeIdx(idx);
 		}
 
 		arr_[idx] = { key, ESlotStatus::eInuse, data };
@@ -251,8 +251,11 @@ namespace data_structure
 				if (arr_[idx].key == key)
 					return ConstHashTableIterator<DataType>(&arr_, idx);
 			}
-			else if (arr_[idx].status == ESlotStatus::eEmpty)
+			else if(arr_[idx].status == ESlotStatus::eEmpty)
 				return End();
+
+			idx += hasher_2_(key);
+			idx = GetWithinRangeIdx(idx);
 		}
 	}
 
@@ -281,7 +284,8 @@ namespace data_structure
 		if (new_size <= static_cast<int>(arr_.size()))
 			return;
 
-		std::vector<HashSlot<DataType>> temp(data_count_);
+		int count = data_count_;
+		std::vector<HashSlot<DataType>> temp(count);
 
 		int i = 0;
 		int j = 0;
@@ -294,14 +298,16 @@ namespace data_structure
 
 			temp[i] = arr_[j];
 			++i;
+			++j;
 		}
 
 		// Clear and resize the original array.
 		arr_.clear();
 		arr_.resize(new_size);
+		data_count_ = 0;
 
 		// Insert the data to the newly resized array.
-		for (int k = 0; i < data_count_; ++i)
+		for (int k = 0; k < count; ++k)
 			Insert(temp[k].key, temp[k].data);
 	} 
 
