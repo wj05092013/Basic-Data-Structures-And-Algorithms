@@ -50,6 +50,10 @@ namespace algorithm
 	}
 
 	bool IsPrimeNumber(int n);
+
+	// Return a prime number smaller than the input 'n'.
 	int PrimeNumberSmallerThan(int n);
+
+	// Return a prime number bigger than the input 'n'.
 	int PrimeNumberBiggerThan(int n);
 }

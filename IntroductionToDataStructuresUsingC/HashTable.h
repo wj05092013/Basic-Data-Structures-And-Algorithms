@@ -76,16 +76,14 @@ namespace data_structure
 
 		bool Insert(int key, const DataType& data);
 		void Erase(int key);
-		ConstHashTableIterator<DataType> Find(int key) const;
-		HashTableIterator<DataType> Find(int key);
-
-		//
+		
+		// Return the number of elements stored in this table.
 		int Size() const;
 
 		// Return the capacity of this table.
 		int SlotCount() const;
 
-		//
+		// Only expand the capacity of this table.
 		void Rehash(int minimum_size);
 
 		const DataType& operator[](int key) const;
@@ -96,12 +94,16 @@ namespace data_structure
 			 The order of elements is the same as the order in the array.
 		*/
 
+		ConstHashTableIterator<DataType> Find(int key) const;
+		HashTableIterator<DataType> Find(int key);
+
 		ConstHashTableIterator<DataType> Begin() const;
 		HashTableIterator<DataType> Begin();
 		ConstHashTableIterator<DataType> End() const;
 		HashTableIterator<DataType> End();
 
 	private:
+		// Recalculate index if the input 'idx' is out of range.
 		int GetWithinRangeIdx(int idx) const;
 
 	private:

@@ -46,6 +46,9 @@
     <Filter Include="DataStructure\Hash">
       <UniqueIdentifier>{08a8c54c-5780-41eb-a429-8e1f23017936}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Document">
+      <UniqueIdentifier>{ab1a637a-35ae-4a4e-a090-6f604e8c2b31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BinarySearch.cpp">
@@ -111,9 +114,11 @@
     <ClCompile Include="TestHashTable.cpp">
       <Filter>DataStructure\Hash</Filter>
     </ClCompile>
-    <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="Main.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Algorithm.cpp">
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -186,5 +191,10 @@
     <ClInclude Include="TestHashTable.h">
       <Filter>DataStructure\Hash</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>Document</Filter>
+    </None>
   </ItemGroup>
 </Project>

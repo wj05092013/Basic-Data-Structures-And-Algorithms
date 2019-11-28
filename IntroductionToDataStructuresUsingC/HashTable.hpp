@@ -239,33 +239,6 @@ namespace data_structure
 	}
 
 	template<class DataType>
-	inline ConstHashTableIterator<DataType> HashTable<DataType>::Find(int key) const
-	{
-		int idx = hasher_1_(key);
-		idx = GetWithinRangeIdx(idx);
-
-		while (true)
-		{
-			if (arr_[idx].status == ESlotStatus::eInuse)
-			{
-				if (arr_[idx].key == key)
-					return ConstHashTableIterator<DataType>(&arr_, idx);
-			}
-			else if(arr_[idx].status == ESlotStatus::eEmpty)
-				return End();
-
-			idx += hasher_2_(key);
-			idx = GetWithinRangeIdx(idx);
-		}
-	}
-
-	template<class DataType>
-	inline HashTableIterator<DataType> HashTable<DataType>::Find(int key)
-	{
-		return HashTableIterator<DataType>(static_cast<const HashTable<DataType>*>(this)->Find(key));
-	}
-
-	template<class DataType>
 	inline int HashTable<DataType>::Size() const
 	{
 		return data_count_;
@@ -321,6 +294,33 @@ namespace data_structure
 	inline DataType& HashTable<DataType>::operator[](int key)
 	{
 		return *Find(key);
+	}
+
+	template<class DataType>
+	inline ConstHashTableIterator<DataType> HashTable<DataType>::Find(int key) const
+	{
+		int idx = hasher_1_(key);
+		idx = GetWithinRangeIdx(idx);
+
+		while (true)
+		{
+			if (arr_[idx].status == ESlotStatus::eInuse)
+			{
+				if (arr_[idx].key == key)
+					return ConstHashTableIterator<DataType>(&arr_, idx);
+			}
+			else if (arr_[idx].status == ESlotStatus::eEmpty)
+				return End();
+
+			idx += hasher_2_(key);
+			idx = GetWithinRangeIdx(idx);
+		}
+	}
+
+	template<class DataType>
+	inline HashTableIterator<DataType> HashTable<DataType>::Find(int key)
+	{
+		return HashTableIterator<DataType>(static_cast<const HashTable<DataType>*>(this)->Find(key));
 	}
 
 	template<class DataType>
