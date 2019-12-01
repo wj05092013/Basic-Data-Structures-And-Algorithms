@@ -41,6 +41,7 @@ namespace algorithm
 
 		size_t pivot = SelectPivotIdx(arr, begin, end, comp);
 		Swap(arr[begin], arr[pivot]);
+		pivot = begin;
 
 		size_t low = begin + 1;
 		size_t high = end - 1;

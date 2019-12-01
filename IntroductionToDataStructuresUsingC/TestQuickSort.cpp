@@ -8,7 +8,7 @@ namespace test_quick_sort
 	void InitTestCases()
 	{
 		test_cases = {
-			std::vector<int>{4,2,9,6,5,8,-2,-5,7,-6},
+			std::vector<int>{1,2,3,4,5},
 			std::vector<int>{},
 			std::vector<int>{3},
 			std::vector<int>{5,5,5,5,5,5,5,5,5,5},
